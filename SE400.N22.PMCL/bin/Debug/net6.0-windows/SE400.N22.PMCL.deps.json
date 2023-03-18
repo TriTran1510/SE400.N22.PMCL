@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SE400.N22.PMCL/1.0.0": {
+        "runtime": {
+          "SE400.N22.PMCL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SE400.N22.PMCL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
