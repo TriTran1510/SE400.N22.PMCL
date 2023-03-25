@@ -19,3 +19,26 @@ C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-w
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.pdb
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\ref\SE400.N22.PMCL.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.exe
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.deps.json
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.runtimeconfig.json
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.pdb
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.csproj.AssemblyReference.cache
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL_MarkupCompile.cache
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL_MarkupCompile.lref
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.g.resources
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.AssemblyInfoInputs.cache
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.AssemblyInfo.cs
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.csproj.CoreCompileInputs.cache
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\refint\SE400.N22.PMCL.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.pdb
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.genruntimeconfig.cache
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\ref\SE400.N22.PMCL.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\SearchBar.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\App.baml
