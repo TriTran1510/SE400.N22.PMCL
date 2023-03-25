@@ -14,4 +14,8 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SingleStoreConnector" Version="1.0.1" />
+  </ItemGroup>
+
 </Project>

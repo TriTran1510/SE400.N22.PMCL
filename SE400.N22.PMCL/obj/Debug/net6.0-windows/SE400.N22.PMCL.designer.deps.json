@@ -5,7 +5,24 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {}
+    ".NETCoreApp,Version=v6.0": {
+      "SingleStoreConnector/1.0.1": {
+        "runtime": {
+          "lib/net6.0/SingleStoreConnector.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "SingleStoreConnector/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8tzAW8ubV6/2t3Xe9uRV4flpmeRUfMnduGSGbmQmBUNv85nTxIGHoyNhcWPV8ZDvvzHOVWSvbIBxzlCeTf/vjg==",
+      "path": "singlestoreconnector/1.0.1",
+      "hashPath": "singlestoreconnector.1.0.1.nupkg.sha512"
+    }
+  }
 }

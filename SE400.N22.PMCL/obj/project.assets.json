@@ -1,26 +1,72 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "SingleStoreConnector/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SingleStoreConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SingleStoreConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SingleStoreConnector/1.0.1": {
+      "sha512": "8tzAW8ubV6/2t3Xe9uRV4flpmeRUfMnduGSGbmQmBUNv85nTxIGHoyNhcWPV8ZDvvzHOVWSvbIBxzlCeTf/vjg==",
+      "type": "package",
+      "path": "singlestoreconnector/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/SingleStoreConnector.dll",
+        "lib/net45/SingleStoreConnector.xml",
+        "lib/net461/SingleStoreConnector.dll",
+        "lib/net461/SingleStoreConnector.xml",
+        "lib/net471/SingleStoreConnector.dll",
+        "lib/net471/SingleStoreConnector.xml",
+        "lib/net5.0/SingleStoreConnector.dll",
+        "lib/net5.0/SingleStoreConnector.xml",
+        "lib/net6.0/SingleStoreConnector.dll",
+        "lib/net6.0/SingleStoreConnector.xml",
+        "lib/netcoreapp3.1/SingleStoreConnector.dll",
+        "lib/netcoreapp3.1/SingleStoreConnector.xml",
+        "lib/netstandard2.0/SingleStoreConnector.dll",
+        "lib/netstandard2.0/SingleStoreConnector.xml",
+        "lib/netstandard2.1/SingleStoreConnector.dll",
+        "lib/netstandard2.1/SingleStoreConnector.xml",
+        "singlestore_logo.png",
+        "singlestoreconnector.1.0.1.nupkg.sha512",
+        "singlestoreconnector.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "SingleStoreConnector >= 1.0.1"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\TRI TRAN\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
       "projectName": "SE400.N22.PMCL",
-      "projectPath": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
-      "packagesPath": "C:\\Users\\TRI TRAN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\TRI TRAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -45,6 +91,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "SingleStoreConnector": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -64,7 +116,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

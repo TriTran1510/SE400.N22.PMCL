@@ -47,7 +47,7 @@ namespace SE400.N22.PMCL {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.0.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.8.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -59,7 +59,7 @@ namespace SE400.N22.PMCL {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/SE400.N22.PMCL;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SE400.N22.PMCL;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -73,7 +73,7 @@ namespace SE400.N22.PMCL {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.0.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.8.0")]
         public static void Main() {
             SE400.N22.PMCL.App app = new SE400.N22.PMCL.App();
             app.InitializeComponent();
