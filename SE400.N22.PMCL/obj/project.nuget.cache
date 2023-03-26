@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jqeIQ0TenxaKx0oNS3NHaJHLyKs6BhUP4cw1vYfCIHZM95aNJcSSH28zu+AwmHyHk6dW9pQaaouSZ8+lDeIqXg==",
+  "dgSpecHash": "FBqLBBKt5l+/Dz2OLLyfziFqUbuFgMb1YuS3xKdj4aXTS2n6DFiq19UBFFJwzRfZj2SgXe0uacoljKqi+CBTYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
+  "projectFilePath": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ADMIN\\.nuget\\packages\\singlestoreconnector\\1.0.1\\singlestoreconnector.1.0.1.nupkg.sha512"
+    "C:\\Users\\TRI TRAN\\.nuget\\packages\\singlestoreconnector\\1.0.1\\singlestoreconnector.1.0.1.nupkg.sha512"
   ],
   "logs": []
 }
