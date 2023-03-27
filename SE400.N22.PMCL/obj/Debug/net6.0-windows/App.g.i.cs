@@ -59,7 +59,7 @@ namespace SE400.N22.PMCL {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/SE400.N22.PMCL;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SE400.N22.PMCL;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

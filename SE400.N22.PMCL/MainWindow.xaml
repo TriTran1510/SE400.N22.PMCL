@@ -37,7 +37,7 @@
                     
                 </StackPanel>
             </Border>
-
+            
             <TextBox Grid.Column="1"
                      Width="250"
                      Height="40"
@@ -46,6 +46,19 @@
                      FontSize="15"
                      Margin="10,0,0,0"
                      Style="{StaticResource SearchBarTextBox}"/>
+
+            <Grid 
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="625">
+                <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="14,55,0,46" Name="dataGridCustomers" Width="575" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=high}" Header="high" Width="100" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=low}" Header="low" Width="100" IsReadOnly="True" />
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
     </Border>
 </Window>
