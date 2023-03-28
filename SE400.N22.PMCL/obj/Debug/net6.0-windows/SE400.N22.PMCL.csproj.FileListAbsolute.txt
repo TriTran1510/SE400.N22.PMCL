@@ -56,3 +56,5 @@ C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Deb
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.csproj.CopyComplete
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\LiveCharts.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll

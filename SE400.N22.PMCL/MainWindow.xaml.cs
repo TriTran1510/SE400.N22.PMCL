@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -30,14 +31,17 @@ namespace SE400.N22.PMCL
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 
-                    connection.Open();
-                    // Execute SQL queries or commands here
-                    MySqlCommand cmd = new MySqlCommand("SELECT high,low from MarketStock.TECHM limit 10;", connection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataSet dataTable = new DataSet();
-                    adapter.Fill( dataTable, "LoadDataBinding");
-                    dataGridCustomers.DataContext = dataTable;
-                
+                connection.Open();
+                // Execute SQL queries or commands here
+                MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                dataGridCustomers.DataContext = dataTable;
+
+                lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
+
             }
         }
     }
