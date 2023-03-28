@@ -44,5 +44,15 @@ namespace SE400.N22.PMCL
 
             }
         }
+
+        private void Closebtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Minimizebtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

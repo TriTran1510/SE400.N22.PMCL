@@ -7,6 +7,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/SearchBar.xaml"/>
+                <ResourceDictionary Source="Theme/CloseBtn.xaml"/>
+                <ResourceDictionary Source="Theme/MinimizeBtn.xaml"/>
+                <ResourceDictionary Source="Theme/MenuButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

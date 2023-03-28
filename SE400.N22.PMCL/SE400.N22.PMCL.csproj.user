@@ -10,6 +10,15 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Theme\CloseBtn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\MenuButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\MinimizeBtn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Theme\SearchBar.xaml">
       <SubType>Designer</SubType>
     </Page>

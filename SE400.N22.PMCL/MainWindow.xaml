@@ -42,18 +42,22 @@
                     Margin="10,10,10,10"
                     Padding="8,20,8,20">
                 <StackPanel >
-                    
-                      <ListView x:Name="lsStockName" 
+
+                    <ListView x:Name="lsStockName" 
                               HorizontalAlignment="Stretch"
                               Background="Transparent">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid HorizontalAlignment="Stretch" Width="100">
-                                    <Button 
-                                        HorizontalAlignment="Stretch" 
-                                        Content="{Binding}">
-                                    </Button>
-                                </Grid>
+                                
+                                    <RadioButton 
+                                        Height="40"
+                                        Width="150"
+                                        FontSize="14"
+                                        Foreground="Black"
+                                        Content="{Binding}"
+                                        Style="{StaticResource MenuButtonTheme}">
+                                    </RadioButton>
+                                
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>  
@@ -69,33 +73,24 @@
                      Height="40"
                      HorizontalAlignment="Left"
                      FontSize="15"
-                     Margin="10,0,440,0"
+                     Margin="10,0,435,0"
                      Style="{StaticResource SearchBarTextBox}"/>
-                <Button
+                <Button x:Name="Minimizebtn"
                     Height="25"
                     Width="25"
                     Margin="0,5,0,0"
                     BorderThickness="0" 
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
-                    Background="Transparent">
-                    <Image
-                        Height="15"
-                        Width="15"
-                        Source="images/minimize.png"/>
+                    Style="{StaticResource MinimizeButton}" Click="Minimizebtn_Click">
                 </Button>
-                <Button 
+                <Button x:Name="Closebtn" 
                     Height="25"
                     Width="25"
-                    Margin="0,5,0,0"
+                    Margin="5,5,0,0"
                     BorderThickness="0" 
                     VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Background="Transparent">
-                    <Image
-                        Height="15"
-                        Width="15"
-                        Source="images/close.png"/>
+                    Style="{StaticResource CloseButton}" Click="Closebtn_Click">
                 </Button>
             </StackPanel>
 

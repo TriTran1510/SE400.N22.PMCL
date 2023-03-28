@@ -58,3 +58,6 @@ C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Deb
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.csproj.CopyComplete
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\LiveCharts.dll
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\CloseBtn.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MinimizeBtn.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MenuButton.baml

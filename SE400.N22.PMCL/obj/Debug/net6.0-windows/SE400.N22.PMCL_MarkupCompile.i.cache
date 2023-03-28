@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\App.xaml
-2-538583902
+51140318514
 
 552655229
 203-2144117332
-MainWindow.xaml;Theme\SearchBar.xaml;
+MainWindow.xaml;Theme\CloseBtn.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\SearchBar.xaml;
 
-True
+False
 
