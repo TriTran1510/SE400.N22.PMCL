@@ -61,18 +61,8 @@
                                         FontSize="14"
                                         Foreground="Black"
                                         Content="{Binding}"
-                                        >
-                                        <RadioButton.Template>
-                                            <ControlTemplate TargetType="{x:Type RadioButton}">
-                                                <Grid>
-                                                    <Ellipse Stroke="{TemplateBinding BorderBrush}"
-                                     StrokeThickness="{TemplateBinding BorderThickness}"
-                                     Fill="{TemplateBinding Background}" />
-                                                    <Path Fill="{TemplateBinding Foreground}"
-                                  Data="M4,4 L16,16 M16,4 L4,16" />
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </RadioButton.Template>
+                                        Style="{StaticResource MenuButtonTheme}">
+                                        
                                     </RadioButton>
                                 </DataTemplate>
                         </ListView.ItemTemplate>
