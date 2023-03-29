@@ -41,28 +41,46 @@
                     Background="#e6f3ff"
                     Margin="10,10,10,10"
                     Padding="8,20,8,20">
-                <StackPanel >
-
+                <ScrollViewer 
+                    x:Name="scrollMenu"
+                    VerticalScrollBarVisibility="Hidden"
+                    HorizontalScrollBarVisibility="Hidden" PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
+                    <StackPanel >
                     <ListView x:Name="lsStockName" 
                               HorizontalAlignment="Stretch"
-                              Background="Transparent">
+                              Background="Transparent"
+                              SelectionMode="Single"
+                              BorderThickness="0">
                         <ListView.ItemTemplate>
-                            <DataTemplate>
-                                
+                                <DataTemplate>
                                     <RadioButton 
+                                        GroupName="myRadioGroup"
+                                        IsChecked="{Binding IsSelected, Mode=TwoWay}"
                                         Height="40"
                                         Width="150"
                                         FontSize="14"
                                         Foreground="Black"
                                         Content="{Binding}"
-                                        Style="{StaticResource MenuButtonTheme}">
+                                        >
+                                        <RadioButton.Template>
+                                            <ControlTemplate TargetType="{x:Type RadioButton}">
+                                                <Grid>
+                                                    <Ellipse Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="{TemplateBinding BorderThickness}"
+                                     Fill="{TemplateBinding Background}" />
+                                                    <Path Fill="{TemplateBinding Foreground}"
+                                  Data="M4,4 L16,16 M16,4 L4,16" />
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </RadioButton.Template>
                                     </RadioButton>
-                                
-                            </DataTemplate>
+                                </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>  
                      
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                
             </Border>
 
             <StackPanel 

@@ -54,5 +54,12 @@ namespace SE400.N22.PMCL
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void scrollMenu_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+        }
     }
 }
