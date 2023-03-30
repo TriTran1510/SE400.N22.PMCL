@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using SE400.N22.PMCL.Control;
 
 namespace SE400.N22.PMCL
 {
@@ -24,25 +26,25 @@ namespace SE400.N22.PMCL
     /// </summary>
     public partial class MainWindow : Window
     {
+        MySqlConnection connection;
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
             string connectionString = ConfigurationManager.ConnectionStrings["TiDBConnectionString"].ConnectionString;
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                
-                connection.Open();
-                // Execute SQL queries or commands here
-                MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                dataGridCustomers.DataContext = dataTable;
+            connection = new MySqlConnection(connectionString);
 
-                lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
-                .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
+            connection.Open();
+            // Execute SQL queries or commands here
+            MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dataGridCustomers.DataContext = dataTable;
 
-            }
+            lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
+            .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
+            
         }
 
         private void Closebtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +56,15 @@ namespace SE400.N22.PMCL
         {
             this.WindowState = WindowState.Minimized;
         }
-
+        private void OnRadioClick(object sender, RoutedEventArgs e)
+        {
+            RadioButton ck = sender as RadioButton;
+            if (ck.IsChecked.Value)
+            {
+                this.DataContext = new MarketControl(ck.Content.ToString(),connection);
+            }
+            
+        }
         private void scrollMenu_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer scv = (ScrollViewer)sender;
