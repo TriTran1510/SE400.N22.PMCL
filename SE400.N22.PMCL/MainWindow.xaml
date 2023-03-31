@@ -10,6 +10,9 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Title="StockMarketAnalyze" Height="600" Width="920">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
     <Border Background="White"
             CornerRadius="20">
         <Grid>
@@ -28,7 +31,7 @@
                     Height="30"
                     Width="30"
                     HorizontalAlignment="Left"
-                    Source="Images/stockIcon.png"/>
+                    Source="Resources/stockIcon.png"/>
                 <TextBlock Text="StockMarket"
                        VerticalAlignment="Center"
                        FontSize="20"
@@ -54,6 +57,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <RadioButton 
+                                        x:Name="LsItemRadBtn"
                                         GroupName="myRadioGroup"
                                         IsChecked="{Binding IsSelected, Mode=TwoWay}"
                                         Height="40"
@@ -103,27 +107,45 @@
                 </Button>
             </StackPanel>
 
-
-            <Grid 
+            <ScrollViewer 
                 Grid.Row="1"
                 Grid.Column="1"
-                HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="750">
-                <TextBlock Text="{Binding MarketName}"></TextBlock>
-                <DataGrid AutoGenerateColumns="False" 
-                          HorizontalAlignment="Left" 
-                          Margin="14,55,0,46" 
-                          Name="dataGridCustomers" 
-                          Width="726" 
-                          ItemsSource="{Binding Path=LoadDataBinding}" 
-                          CanUserResizeRows="False">
-                    <DataGrid.Columns>
-                        <!--<DataGridTextColumn Binding="{Binding Path=high}" Header="high" Width="100" IsReadOnly="True" />
-                        <DataGridTextColumn Binding="{Binding Path=low}" Header="low" Width="100" IsReadOnly="True" />-->
-                        <!--
-                        <DataGridTextColumn Binding="{Binding Path=Tables_in_MarketStock}" Header="Bank" Width="100" IsReadOnly="True" />-->
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="530"  Width="750">
+                <Grid>
+
+                    <Image
+                        Margin="0,12,0,0"
+                        Height="525"
+                        Width="750"
+                        VerticalAlignment="Center"
+                        Source="Resources/missingdata.png"
+                        Style="{StaticResource MissingDataImage}">
+                        
+                    </Image>
+                    <TextBlock 
+                        x:Name="StockName" 
+                        Margin="8,10,0,0"
+                        FontSize="20"
+                        Text="{Binding MarketName}"/>
+                    <DataGrid AutoGenerateColumns="False" 
+                              HorizontalAlignment="Left" 
+                              Margin="14,55,0,46" 
+                              Name="dataGridCustomers" 
+                              Width="726" 
+                              ItemsSource="{Binding Path=LoadDataBinding}" 
+                              CanUserResizeRows="False"
+                              Style="{StaticResource StockDataGrid}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Tables_in_MarketStock}" Header="Bank" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=high}" Header="high" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=low}" Header="low" Width="100" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </ScrollViewer>
+            
         </Grid>
     </Border>
 </Window>

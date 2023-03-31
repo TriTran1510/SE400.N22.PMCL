@@ -1,7 +1,7 @@
 ﻿SE400.N22.PMCL
 
 
-winexe
+exe
 C#
 .cs
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\App.xaml
-51140318514
+71134436708
 
-3-1233169557
+41614609675
 203-2144117332
-MainWindow.xaml;Theme\CloseBtn.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\SearchBar.xaml;
+MainWindow.xaml;Theme\CloseBtn.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\MissingDataImage.xaml;Theme\SearchBar.xaml;Theme\StockDetailGrid.xaml;
 
 False
 

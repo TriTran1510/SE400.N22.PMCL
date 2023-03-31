@@ -19,7 +19,13 @@
     <Page Update="Theme\MinimizeBtn.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Theme\MissingDataImage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Theme\SearchBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\StockDetailGrid.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

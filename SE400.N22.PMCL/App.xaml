@@ -10,6 +10,8 @@
                 <ResourceDictionary Source="Theme/CloseBtn.xaml"/>
                 <ResourceDictionary Source="Theme/MinimizeBtn.xaml"/>
                 <ResourceDictionary Source="Theme/MenuButton.xaml"/>
+                <ResourceDictionary Source="Theme/MissingDataImage.xaml"/>
+                <ResourceDictionary Source="Theme/StockDetailGrid.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
