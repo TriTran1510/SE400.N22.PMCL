@@ -8,9 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Core\" />
-    <Folder Include="Data\" />
+    <Compile Remove="Core\**" />
+    <Compile Remove="Fonts\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <EmbeddedResource Remove="Fonts\**" />
+    <None Remove="Core\**" />
+    <None Remove="Fonts\**" />
+    <Page Remove="Core\**" />
+    <Page Remove="Fonts\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -129,18 +129,19 @@
                         Margin="8,10,0,0"
                         FontSize="20"
                         Text="{Binding MarketName}"/>
-                    <DataGrid AutoGenerateColumns="False" 
+                    <DataGrid 
+                              AutoGenerateColumns="False"
                               HorizontalAlignment="Left" 
                               Margin="14,55,0,46" 
-                              Name="dataGridCustomers" 
+                              x:Name="dataGridMarket" 
                               Width="726" 
-                              ItemsSource="{Binding Path=LoadDataBinding}" 
-                              CanUserResizeRows="False"
+                              ItemsSource="{Binding LoadDataBinding}" 
+                              CanUserResizeRows="True"
                               Style="{StaticResource StockDataGrid}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Tables_in_MarketStock}" Header="Bank" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding Path=high}" Header="high" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding Path=low}" Header="low" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding symbol}" Header="Market Name" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding high}" Header="high" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding low}" Header="low" Width="100" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

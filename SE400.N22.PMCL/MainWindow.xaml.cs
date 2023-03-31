@@ -40,7 +40,6 @@ namespace SE400.N22.PMCL
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-            dataGridCustomers.DataContext = dataTable;
 
             lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
             .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
@@ -62,7 +61,8 @@ namespace SE400.N22.PMCL
             RadioButton ck = sender as RadioButton;
             if (ck.IsChecked.Value)
             {
-                this.DataContext = new MarketControl(ck.Content.ToString(),connection);
+                MarketControl marketcontrol = new MarketControl(ck.Content.ToString(), connection);
+                this.DataContext = marketcontrol;
             }
             
         }
