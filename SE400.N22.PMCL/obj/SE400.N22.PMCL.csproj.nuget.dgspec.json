@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj": {}
+    "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj": {
+    "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
         "projectName": "SE400.N22.PMCL",
-        "projectPath": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
-        "packagesPath": "C:\\Users\\TRI TRAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TRI TRAN\\Desktop\\Hoctap\\htap demo\\SE400.N22.PMCL\\SE400.N22.PMCL\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\SE400.N22.PMCL.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Desktop\\Projects\\SE400.N22.PMCL\\SE400.N22.PMCL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\TRI TRAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

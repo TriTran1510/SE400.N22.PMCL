@@ -47,7 +47,8 @@
                 <ScrollViewer 
                     x:Name="scrollMenu"
                     VerticalScrollBarVisibility="Hidden"
-                    HorizontalScrollBarVisibility="Hidden" PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
+                    HorizontalScrollBarVisibility="Disabled" 
+                    PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
                     <StackPanel x:Name="lsStockPanel">
                         <ListView x:Name="lsStockName" 
                               HorizontalAlignment="Stretch"
@@ -112,7 +113,10 @@
                 Grid.Column="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Height="530"  Width="750">
+                Height="530"  Width="750"
+                HorizontalScrollBarVisibility="Hidden"
+                VerticalScrollBarVisibility="Hidden"
+                PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
                 <Grid>
 
                     <Image
@@ -129,7 +133,8 @@
                         Margin="8,10,0,0"
                         FontSize="20"
                         Text="{Binding MarketName}"/>
-                    <DataGrid 
+                    
+                        <DataGrid 
                               AutoGenerateColumns="False"
                               HorizontalAlignment="Left" 
                               Margin="14,55,0,46" 
@@ -139,9 +144,22 @@
                               CanUserResizeRows="True"
                               Style="{StaticResource StockDataGrid}">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding date}" Header="Date" Width="100" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding symbol}" Header="Market Name" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding high}" Header="high" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding low}" Header="low" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding series}" Header="Series" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding prev_close}" Header="Previous close" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding open}" Header="Open price" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding high}" Header="High" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding low}" Header="Low" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding last}" Header="Last" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding close}" Header="Close" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding vwap}" Header="VWAP" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding volume}" Header="Volume" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding turnover}" Header="Turn over" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding trades}" Header="Trades" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding deliverable_volume}" Header="Deliverable Volume" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding percent_deliverble}" Header="Percent Deliverble" Width="100" IsReadOnly="True" />
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

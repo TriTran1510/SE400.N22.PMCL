@@ -41,7 +41,16 @@ namespace SE400.N22.PMCL.Control
                     }
                     while (await reader.ReadAsync())
                     {
-                        LoadDataBinding.Add(new MarketModel(reader.GetDateTime(0), reader.GetString(1), reader.GetString(2), reader.GetFloat(3), reader.GetFloat(4), reader.GetFloat(5), reader.GetFloat(6), reader.GetFloat(7), reader.GetFloat(8), reader.GetInt32(9)));
+                        LoadDataBinding.Add(new MarketModel(reader.GetDateTime(0), 
+                            reader.GetString(1), 
+                            reader.GetString(2), 
+                            reader.GetFloat(3), 
+                            reader.GetFloat(4), 
+                            reader.GetFloat(5), 
+                            reader.GetFloat(6), 
+                            reader.GetFloat(7), 
+                            reader.GetFloat(8), 
+                            reader.GetInt32(9)));
                     }
                     reader.Close();
 

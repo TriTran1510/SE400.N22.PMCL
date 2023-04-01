@@ -8,7 +8,7 @@ namespace SE400.N22.PMCL.Data
 {
     public class MarketModel
     {
-        public MarketModel(DateTime date, string symbol, string series, float prev_close, float open, float high, float low, float last, float close,  int volumn, float vwap = 0, long turnover=0, int trade=0, int deliverable_volumn=0, float percent_deliverble=0)
+        public MarketModel(DateTime date, string symbol, string series, float prev_close, float open, float high, float low, float last, float close,  int volume, float vwap = 0, long turnover=0, int trade=0, int deliverable_volumn=0, float percent_deliverble=0)
         {
             this.date = date;
             this.symbol = symbol;
@@ -20,7 +20,7 @@ namespace SE400.N22.PMCL.Data
             this.last = last;
             this.close = close;
             this.vwap = vwap;
-            this.volumn = volumn;
+            this.volume = volume;
             this.turnover = turnover;
             this.trade = trade;
             this.deliverable_volumn = deliverable_volumn;
