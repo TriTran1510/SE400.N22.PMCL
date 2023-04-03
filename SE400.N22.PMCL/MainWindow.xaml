@@ -3,26 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SE400.N22.PMCL"
+        xmlns:local="clr-namespace:SE400.N22.PMCL" 
+        xmlns:convert="clr-namespace:SE400.N22.PMCL.Utils"
+        xmlns:comp="clr-namespace:SE400.N22.PMCL.Theme.Form"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
         ResizeMode="NoResize"
         WindowStyle="None"
-        Title="StockMarketAnalyze" Height="600" Width="920">
+        Title="StockMarketAnalyze" Height="650" Width="1020">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <convert:VisibilityConverter x:Key="visiConvert"/>
     </Window.Resources>
     <Border Background="White"
             CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="180"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
@@ -87,24 +92,27 @@
                      Height="40"
                      HorizontalAlignment="Left"
                      FontSize="15"
-                     Margin="10,0,435,0"
+                     Margin="10,0,490,0"
                      Style="{StaticResource SearchBarTextBox}"/>
                 <Button x:Name="Minimizebtn"
-                    Height="25"
-                    Width="25"
+                    Height="40"
+                    Width="40"
                     Margin="0,5,0,0"
                     BorderThickness="0" 
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
-                    Style="{StaticResource MinimizeButton}" Click="Minimizebtn_Click">
+                    Click="Minimizebtn_Click"
+                    Style="{StaticResource MinimizeButton}">
                 </Button>
                 <Button x:Name="Closebtn" 
-                    Height="25"
-                    Width="25"
+                    Height="40"
+                    Width="40"
                     Margin="5,5,0,0"
                     BorderThickness="0" 
                     VerticalAlignment="Top"
-                    Style="{StaticResource CloseButton}" Click="Closebtn_Click">
+                    Style="{StaticResource CloseButton}"
+                    Click="Closebtn_Click">
+                    
                 </Button>
             </StackPanel>
 
@@ -113,36 +121,49 @@
                 Grid.Column="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Height="530"  Width="750"
+                Height="580"  Width="850"
                 HorizontalScrollBarVisibility="Hidden"
                 VerticalScrollBarVisibility="Hidden"
                 PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
                 <Grid>
-
                     <Image
                         Margin="0,12,0,0"
-                        Height="525"
-                        Width="750"
-                        VerticalAlignment="Center"
+                        Height="560"
+                        Width="820"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
                         Source="Resources/missingdata.png"
                         Style="{StaticResource MissingDataImage}">
-                        
+
                     </Image>
-                    <TextBlock 
+                    <StackPanel>
+                        <TextBlock 
                         x:Name="StockName" 
-                        Margin="8,10,0,0"
+                        Margin="10,10,0,0"
                         FontSize="20"
-                        Text="{Binding MarketName}"/>
-                    
-                        <DataGrid 
-                              AutoGenerateColumns="False"
-                              HorizontalAlignment="Left" 
-                              Margin="14,55,0,46" 
-                              x:Name="dataGridMarket" 
-                              Width="726" 
-                              ItemsSource="{Binding LoadDataBinding}" 
-                              CanUserResizeRows="True"
-                              Style="{StaticResource StockDataGrid}">
+                        Text="{Binding MarketName, Mode=OneWay}"/>
+                        <Grid Height="400" Width="800">
+                            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left">
+                                <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Date" Labels="{Binding Lables}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Price" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+                        <!--<comp:LoadingForm
+                        Visibility="{Binding isLoaded, 
+                        Converter={StaticResource visiConvert}}"/>-->
+                    <DataGrid 
+                                  AutoGenerateColumns="False"
+                                  HorizontalAlignment="Left" 
+                                  Margin="10,55,0,46" 
+                                  x:Name="dataGridMarket" 
+                                  Width="820" 
+                                  ItemsSource="{Binding LoadDataBinding}" 
+                                  CanUserResizeRows="True"
+                                  Style="{StaticResource StockDataGrid}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding date}" Header="Date" Width="100" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding symbol}" Header="Market Name" Width="100" IsReadOnly="True" />
@@ -162,6 +183,8 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
+                    </StackPanel>
+                    
                 </Grid>
             </ScrollViewer>
             

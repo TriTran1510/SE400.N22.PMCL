@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\App.xaml
-71134436708
+9-584563144
 
-5-579949405
-203-2144117332
-MainWindow.xaml;Theme\CloseBtn.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\MissingDataImage.xaml;Theme\SearchBar.xaml;Theme\StockDetailGrid.xaml;
+71933929321
+217572509873
+MainWindow.xaml;Theme\ChartVisi.xaml;Theme\CloseBtn.xaml;Theme\Form\LoadingForm.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\MissingDataImage.xaml;Theme\SearchBar.xaml;Theme\StockDetailGrid.xaml;
 
 False
 

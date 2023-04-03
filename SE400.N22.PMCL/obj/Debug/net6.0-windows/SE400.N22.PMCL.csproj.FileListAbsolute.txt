@@ -61,7 +61,6 @@ C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Deb
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\CloseBtn.baml
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MinimizeBtn.baml
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MenuButton.baml
-C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MissingDataImage.baml
 C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\StockDetailGrid.baml
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\SE400.N22.PMCL.dll.config
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\Google.Protobuf.dll
@@ -86,3 +85,13 @@ C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-w
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\StockDetailGrid.baml
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\App.baml
 C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\SE400.N22.PMCL.csproj.CopyComplete
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\Form\LoadingForm.g.cs
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\Form\LoadingForm.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\MissingDataImage.baml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\Theme\ChartVisi.baml

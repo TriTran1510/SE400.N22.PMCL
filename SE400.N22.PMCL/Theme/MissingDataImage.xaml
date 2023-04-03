@@ -4,10 +4,10 @@
            x:Key="MissingDataImage">
         <Setter Property="Visibility" Value="Hidden"/>
         <Style.Triggers>
-                <DataTrigger Binding="{Binding Text, ElementName=StockName}" Value="">
+            <DataTrigger Binding="{Binding Text, ElementName=StockName}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
-                </DataTrigger>
-            </Style.Triggers>
-        
+            </DataTrigger>
+        </Style.Triggers>
+
     </Style>
 </ResourceDictionary>
