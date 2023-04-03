@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\obj\Debug\net6.0-windows\
 SE400.N22.PMCL
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\ADMIN\Desktop\Projects\SE400.N22.PMCL\SE400.N22.PMCL\App.xaml
+C:\Users\TRI TRAN\Desktop\Hoctap\htap demo\SE400.N22.PMCL\SE400.N22.PMCL\App.xaml
 71134436708
 
 7705875381
-203130811236
+203-2144117332
 MainWindow.xaml;Theme\CloseBtn.xaml;Theme\MenuButton.xaml;Theme\MinimizeBtn.xaml;Theme\MissingDataImage.xaml;Theme\SearchBar.xaml;Theme\StockDetailGrid.xaml;
 
-False
+True
 

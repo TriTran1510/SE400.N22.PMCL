@@ -33,7 +33,8 @@ namespace SE400.N22.PMCL.Control
             {
                 case "ASIANPAINT":
                     //TEST COMMAND
-                    MySqlCommand cmd = new MySqlCommand("select /*+ read_from_storage(TIFLASH[ASIANPAINT]) */ * FROM ASIANPAINT; ", connection);
+                    MySqlCommand cmd = new MySqlCommand("Alter table ASIANPAINT SET tiflash replica 1;" +
+                        "\nselect /*+ read_from_storage(TIFLASH[ASIANPAINT]) */ * FROM ASIANPAINT LIMIT 200; ", connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows == false)
                     {
@@ -41,7 +42,7 @@ namespace SE400.N22.PMCL.Control
                     }
                     while (await reader.ReadAsync())
                     {
-                        LoadDataBinding.Add(new MarketModel(reader.GetDateTime(0), 
+                        LoadDataBinding.Add(new MarketModel(reader.GetString(0), 
                             reader.GetString(1), 
                             reader.GetString(2), 
                             reader.GetFloat(3), 
@@ -55,7 +56,34 @@ namespace SE400.N22.PMCL.Control
                     reader.Close();
 
                     break;
+
+                case "AXISBANK":
+                    MySqlCommand cmd1= new MySqlCommand("Alter table AXISBANK SET tiflash replica 1;" +
+                        "\nselect /*+ read_from_storage(TIFLASH[AXISBANK]) */ * FROM AXISBANK LIMIT 200; ", connection);
+                    MySqlDataReader reader1= cmd1.ExecuteReader();
+                    if (reader1.HasRows == false)
+                    {
+                        Console.WriteLine(" D CHAY! ");
+                    }
+                    while (await reader1.ReadAsync())
+                    {
+                        LoadDataBinding.Add(new MarketModel(reader1.GetString(0),
+                            reader1.GetString(1),
+                            reader1.GetString(2),
+                            reader1.GetFloat(3),
+                            reader1.GetFloat(4),
+                            reader1.GetFloat(5),
+                            reader1.GetFloat(6),
+                            reader1.GetFloat(7),
+                            reader1.GetFloat(8),
+                            reader1.GetInt32(9)));
+                    }
+                    reader1.Close();
+
+                    break;
             }
+
+
         }
 
     }
