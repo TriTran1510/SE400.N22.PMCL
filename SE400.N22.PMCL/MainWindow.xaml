@@ -7,7 +7,7 @@
         xmlns:convert="clr-namespace:SE400.N22.PMCL.Utils"
         xmlns:comp="clr-namespace:SE400.N22.PMCL.Theme.Form"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
@@ -159,10 +159,14 @@
                             FontSize="15"
                             ItemsSource="{Binding LoadListYear}"
                             materialDesign:HintAssist.Hint="Year"
-                            IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            SelectedItem="{Binding SelectedYear,Mode=TwoWay}"
+                            SelectedIndex="{Binding SelectedYear,Mode=TwoWay}"
                             Visibility="Hidden">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding onYearChanged}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ComboBox>
                         <Grid Height="400" Width="800">
                             <lvc:CartesianChart Series="{Binding SeriesCollection}" 

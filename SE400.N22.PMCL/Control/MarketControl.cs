@@ -15,17 +15,19 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Forms.VisualStyles;
+using System.Windows.Controls;
+using System.Windows.Input;
+using SE400.N22.PMCL.Command;
 
 namespace SE400.N22.PMCL.Control
 {
-    public class MarketControl
+    public class MarketControl: INotifyPropertyChanged
     {
         public ObservableCollection<MarketModel> LoadDataBinding { get; set; }
         public ObservableCollection<String> LoadListYear { get; set; }
         public Boolean isLoaded { get; set; }
         public int SelectedYear { get; set; }
         public string MarketName { get; set; }
-        //public string SelectedYear { get; set; }
         private MySqlConnection connection;
         private MySqlConnection connection2;
         public SeriesCollection SeriesCollection { get; set; }
@@ -33,22 +35,25 @@ namespace SE400.N22.PMCL.Control
         public List<String> Labels { get; set; }
 
         public Func<double, string> Formatter { get; set; }
+        public ICommand onYearChanged { get; set; }
 
         public MarketControl(string marketName, MySqlConnection connection, MySqlConnection connection2)
         {
             LoadDataBinding = new ObservableCollection<MarketModel>();
             LoadListYear = new ObservableCollection<String>();
             isLoaded = false;
+            SelectedYear = 0;
             MarketName = marketName;
             this.connection = connection;
             this.connection2 = connection2;
             OnMarketNameChanged();
+            onYearChanged = new RelayCommand(null, p=>onYearChangedCommand());
         }
 
         public async void Chart(String Market, String year)
         {
             MySqlCommand cmd = new MySqlCommand("Alter table " + MarketName + " SET tiflash replica 1;" +
-                        "\nselect /*+ read_from_storage(TIFLASH[" + MarketName + "]) */ date,close FROM " + MarketName + " WHERE year(date) = " + year + " ;", connection2);
+                        "\nselect /*+ read_from_storage(TIFLASH[" + MarketName + "]) */ date,close FROM " + MarketName + " WHERE year(date) = " + year + " ;", connection);
             MySqlDataReader reader1 = cmd.ExecuteReader();
             List<String> lsdate = new List<String>();
             ChartValues<float> lsPrices = new ChartValues<float>();
@@ -62,7 +67,6 @@ namespace SE400.N22.PMCL.Control
                 lsdate.Add(dt.ToString("dd/MM/yyyy"));
                 lsPrices.Add(reader1.GetFloat(1));
             }
-
             SeriesCollection = new SeriesCollection()
             {
                 new LineSeries
@@ -72,20 +76,18 @@ namespace SE400.N22.PMCL.Control
             };
             Labels = lsdate;
             Formatter = value => value.ToString("C");
-            
+            OnPropertyChanged(new PropertyChangedEventArgs("SeriesCollection"));
+            reader1.Close();
         }
 
         private async void OnMarketNameChanged()
         {
-            for(int i = 2000;i<=2020;i++)
-            {
-                LoadListYear.Add(i.ToString());
-            }
+            getYear(MarketName);
             isLoaded = true;
             
-            Chart(MarketName, "2000");
+            Chart(MarketName, LoadListYear[SelectedYear]);
             MySqlCommand cmd = new MySqlCommand("Alter table "+ MarketName + " SET tiflash replica 1;" +
-                        "\nselect /*+ read_from_storage(TIFLASH[" + MarketName + "]) */ * FROM "+ MarketName + " LIMIT 300; ", connection);
+                        "\nselect /*+ read_from_storage(TIFLASH[" + MarketName + "]) */ * FROM "+ MarketName + " ORDER BY date ASC LIMIT 300; ", connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows == false)
@@ -110,6 +112,28 @@ namespace SE400.N22.PMCL.Control
             reader.Close();  
 
         }
+        private async void getYear(string marketName)
+        {
+            MySqlCommand cmd = new MySqlCommand("select year(date) from " + marketName + " group by year(date) order by year(date) asc;", connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (await reader.ReadAsync())
+            {
+                string year = reader.GetString(0);
+                LoadListYear.Add(year);
+            }
+            reader.Close();
+        }
 
+        public void onYearChangedCommand(object o = null)
+        {
+            Chart(MarketName, LoadListYear[SelectedYear]);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
     }
 }
