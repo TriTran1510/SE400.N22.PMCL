@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -21,6 +22,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using MySql.Data.MySqlClient;
 using SE400.N22.PMCL.Control;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace SE400.N22.PMCL
 {
@@ -30,13 +32,17 @@ namespace SE400.N22.PMCL
     public partial class MainWindow : Window
     {
         MySqlConnection connection;
+        MySqlConnection connection2;
+        List<String> lsBank = new List<String>();
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
             string connectionString = ConfigurationManager.ConnectionStrings["TiDBConnectionString"].ConnectionString;
             connection = new MySqlConnection(connectionString);
+            connection2 = new MySqlConnection(connectionString);
 
+            connection2.Open();
             connection.Open();
             // Execute SQL queries or commands here
             MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection);
@@ -46,12 +52,14 @@ namespace SE400.N22.PMCL
 
             lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
             .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
-
+            lsBank = dataTable.Rows.OfType<DataRow>()
+            .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
         }
 
         private void Closebtn_Click(object sender, RoutedEventArgs e)
         {
             connection.Close();
+            connection2.Close();
             this.Close();
         }
 
@@ -61,10 +69,11 @@ namespace SE400.N22.PMCL
         }
         private void OnRadioClick(object sender, RoutedEventArgs e)
         {
-            RadioButton ck = sender as RadioButton;
+            System.Windows.Controls.RadioButton ck = sender as System.Windows.Controls.RadioButton;
+            CbFilterforYear.Visibility = Visibility.Visible;
             if (ck.IsChecked.Value)
             {
-                MarketControl marketcontrol = new MarketControl(ck.Content.ToString(), connection);
+                MarketControl marketcontrol = new MarketControl(ck.Content.ToString(), connection,connection2);
                 this.DataContext = marketcontrol;
             }
             
@@ -75,6 +84,32 @@ namespace SE400.N22.PMCL
             scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
             scv.ScrollToHorizontalOffset(scv.HorizontalOffset - e.Delta);
             e.Handled = true;
+        }
+
+        private Boolean checkAvailable(List<String> lsStock,string name)
+        {
+            foreach (String s in lsStock)
+            {
+                if (name == s) { return true; }
+            }
+            return false;
+        }
+
+        private void SbBank_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Enter)
+            {
+                if(checkAvailable(lsBank,SbBank.Text.ToString().ToUpper()) == true)
+                {
+                    MarketControl marketcontrol = new MarketControl(SbBank.Text.ToUpper(), connection, connection2);
+                    this.DataContext = marketcontrol;
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Not available for you right now!","Notification", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

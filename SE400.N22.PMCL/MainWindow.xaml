@@ -88,12 +88,23 @@
                 Grid.Column="1"
                 Orientation="Horizontal">
                 <TextBox Grid.Column="1"
+                     x:Name="SbBank"
                      Width="250"
-                     Height="40"
+                     Height="45"
                      HorizontalAlignment="Left"
+                     Background="#e6f3ff"
+                     Padding="10,0,0,5"
+                     BorderThickness="0"
                      FontSize="15"
                      Margin="10,0,490,0"
-                     Style="{StaticResource SearchBarTextBox}"/>
+                     VerticalAlignment="Center"
+                     materialDesign:HintAssist.Hint="Search"
+                     MaxWidth="400"
+                     Style="{StaticResource MaterialDesignFilledTextBox}"   
+                     KeyDown="SbBank_KeyDown">
+                </TextBox>
+                
+                
                 <Button x:Name="Minimizebtn"
                     Height="40"
                     Width="40"
@@ -133,15 +144,26 @@
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
                         Source="Resources/missingdata.png"
-                        Style="{StaticResource MissingDataImage}">
-
-                    </Image>
+                        Style="{StaticResource MissingDataImage}"/>
                     <StackPanel>
                         <TextBlock 
                         x:Name="StockName" 
                         Margin="10,10,0,0"
                         FontSize="20"
                         Text="{Binding MarketName, Mode=OneWay}"/>
+                        <ComboBox
+                            x:Name="CbFilterforYear"
+                            HorizontalAlignment="Left"
+                            Margin="10"
+                            Width="100"
+                            FontSize="15"
+                            ItemsSource="{Binding LoadListYear}"
+                            materialDesign:HintAssist.Hint="Year"
+                            IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            SelectedItem="{Binding SelectedYear,Mode=TwoWay}"
+                            Visibility="Hidden">
+                        </ComboBox>
                         <Grid Height="400" Width="800">
                             <lvc:CartesianChart Series="{Binding SeriesCollection}" 
                                                 LegendLocation="Left"
@@ -158,14 +180,14 @@
                         Visibility="{Binding isLoaded, 
                         Converter={StaticResource visiConvert}}"/>-->
                     <DataGrid 
-                                  AutoGenerateColumns="False"
-                                  HorizontalAlignment="Left" 
-                                  Margin="10,55,0,46" 
-                                  x:Name="dataGridMarket" 
-                                  Width="820" 
-                                  ItemsSource="{Binding LoadDataBinding}" 
-                                  CanUserResizeRows="True"
-                                  Style="{StaticResource StockDataGrid}">
+                        AutoGenerateColumns="False"
+                        HorizontalAlignment="Left" 
+                        Margin="10,55,0,46" 
+                        x:Name="dataGridMarket" 
+                        Width="820" 
+                        ItemsSource="{Binding LoadDataBinding}" 
+                        CanUserResizeRows="True"
+                        Style="{StaticResource StockDataGrid}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding date}" Header="Date" Width="100" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding symbol}" Header="Market Name" Width="100" IsReadOnly="True" />
