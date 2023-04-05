@@ -28,16 +28,23 @@ namespace SE400.N22.PMCL.Control
         public Boolean isLoaded { get; set; }
         public int SelectedYear { get; set; }
         public string MarketName { get; set; }
+
         private MySqlConnection connection;
-        private MySqlConnection connection2;
         public SeriesCollection SeriesCollection { get; set; }
 
         public List<String> Labels { get; set; }
 
         public Func<double, string> Formatter { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
         public ICommand onYearChanged { get; set; }
 
-        public MarketControl(string marketName, MySqlConnection connection, MySqlConnection connection2)
+        public MarketControl(string marketName, MySqlConnection connection)
         {
             LoadDataBinding = new ObservableCollection<MarketModel>();
             LoadListYear = new ObservableCollection<String>();
@@ -45,7 +52,6 @@ namespace SE400.N22.PMCL.Control
             SelectedYear = 0;
             MarketName = marketName;
             this.connection = connection;
-            this.connection2 = connection2;
             OnMarketNameChanged();
             onYearChanged = new RelayCommand(null, p=>onYearChangedCommand());
         }
@@ -54,19 +60,20 @@ namespace SE400.N22.PMCL.Control
         {
             MySqlCommand cmd = new MySqlCommand("Alter table " + MarketName + " SET tiflash replica 1;" +
                         "\nselect /*+ read_from_storage(TIFLASH[" + MarketName + "]) */ date,close FROM " + MarketName + " WHERE year(date) = " + year + " ;", connection);
-            MySqlDataReader reader1 = cmd.ExecuteReader();
+            MySqlDataReader reader = cmd.ExecuteReader();
             List<String> lsdate = new List<String>();
             ChartValues<float> lsPrices = new ChartValues<float>();
-            if (reader1.HasRows == false)
+            if (reader.HasRows == false)
             {
                 Console.WriteLine(" D CHAY! ");
             }
-            while (await reader1.ReadAsync())
+            while (await reader.ReadAsync())
             {
-                DateTime dt = DateTime.Parse(reader1.GetString(0));
+                DateTime dt = DateTime.Parse(reader.GetString(0));
                 lsdate.Add(dt.ToString("dd/MM/yyyy"));
-                lsPrices.Add(reader1.GetFloat(1));
+                lsPrices.Add(reader.GetFloat(1));
             }
+            //Create chart
             SeriesCollection = new SeriesCollection()
             {
                 new LineSeries
@@ -77,7 +84,8 @@ namespace SE400.N22.PMCL.Control
             Labels = lsdate;
             Formatter = value => value.ToString("C");
             OnPropertyChanged(new PropertyChangedEventArgs("SeriesCollection"));
-            reader1.Close();
+            OnPropertyChanged(new PropertyChangedEventArgs("Labels"));
+            reader.Close();
         }
 
         private async void OnMarketNameChanged()
@@ -129,11 +137,5 @@ namespace SE400.N22.PMCL.Control
             Chart(MarketName, LoadListYear[SelectedYear]);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(this, e);
-        }
     }
 }
