@@ -7,15 +7,17 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
-                        <Border CornerRadius="50"
+                        <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}"
                                 Height="40"
-                                Width="150">
+                                Width="140">
                             <Grid VerticalAlignment="Stretch"
                                   HorizontalAlignment="Stretch"
-                                  Background="{TemplateBinding Background}">
+                                  >
                                 <Rectangle StrokeThickness="1"/>
                                 <TextBlock 
                                         Text="{TemplateBinding Property=Content}"
+                                        Background="{TemplateBinding Background}"
                                         VerticalAlignment="Center"
                                         Margin="10,0,10,0"/>
                             </Grid>
@@ -23,13 +25,15 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
-            <Setter Property="Background" Value="Transparent"/>
+
+            <Setter Property="Background" Value="#e6f3ff"/>
+            <Setter Property="Background" Value="white"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
         
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="Black"/>
                 <Setter Property="Background" Value="#1F8DF7"/>
             </Trigger>
         </Style.Triggers>

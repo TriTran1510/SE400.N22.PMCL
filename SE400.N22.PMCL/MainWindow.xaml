@@ -32,12 +32,12 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Image 
-                    Margin="10,0,0,0"
+                    Margin="10,0,10,0"
                     Height="30"
                     Width="30"
                     HorizontalAlignment="Left"
-                    Source="Resources/stockIcon.png"/>
-                <TextBlock Text="StockMarket"
+                    Source="pack://application:,,,/Resources/warehouseIcon.png"/>
+                <TextBlock Text="WareHouse"
                        VerticalAlignment="Center"
                        FontSize="20"
                        Foreground="#1F8DF7"
@@ -49,38 +49,28 @@
                     Background="#e6f3ff"
                     Margin="10,10,10,10"
                     Padding="8,20,8,20">
-                <ScrollViewer 
-                    x:Name="scrollMenu"
-                    VerticalScrollBarVisibility="Hidden"
-                    HorizontalScrollBarVisibility="Disabled" 
-                    PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
-                    <StackPanel x:Name="lsStockPanel">
-                        <ListView x:Name="lsStockName" 
-                              HorizontalAlignment="Stretch"
-                              Background="Transparent"
-                              SelectionMode="Single"
-                              BorderThickness="0">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <RadioButton 
-                                        x:Name="LsItemRadBtn"
-                                        GroupName="myRadioGroup"
-                                        IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                                        Height="40"
-                                        Width="150"
-                                        FontSize="14"
-                                        Foreground="Black"
-                                        Checked="OnRadioClick"
-                                        Content="{Binding}"
-                                        Style="{StaticResource MenuButtonTheme}">
-
-                                    </RadioButton>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                    </StackPanel>
-                </ScrollViewer>
+                <StackPanel x:Name="MenuNavBar">
+                    <RadioButton Content="Stock"
+                                 Height="50"
+                                 FontWeight="DemiBold"
+                                 FontSize="15"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Products"
+                                 Height="50"
+                                 FontWeight="DemiBold"
+                                 FontSize="15"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Product Type"
+                                 Height="50"
+                                 FontWeight="DemiBold"
+                                 FontSize="15"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Import/Export"
+                                 Height="50"
+                                 FontWeight="DemiBold"
+                                 FontSize="15"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                </StackPanel>
 
             </Border>
 
@@ -103,8 +93,8 @@
                      Style="{StaticResource MaterialDesignFilledTextBox}"   
                      KeyDown="SbBank_KeyDown">
                 </TextBox>
-                
-                
+
+
                 <Button x:Name="Minimizebtn"
                     Height="40"
                     Width="40"
@@ -123,99 +113,18 @@
                     VerticalAlignment="Top"
                     Style="{StaticResource CloseButton}"
                     Click="Closebtn_Click">
-                    
+
                 </Button>
             </StackPanel>
 
-            <ScrollViewer 
-                Grid.Row="1"
-                Grid.Column="1"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Height="580"  Width="850"
-                HorizontalScrollBarVisibility="Hidden"
-                VerticalScrollBarVisibility="Hidden"
-                PreviewMouseWheel="scrollMenu_PreviewMouseWheel">
-                <Grid>
-                    <Image
-                        Margin="0,12,0,0"
-                        Height="560"
-                        Width="820"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Left"
-                        Source="Resources/missingdata.png"
-                        Style="{StaticResource MissingDataImage}"/>
-                    <StackPanel>
-                        <TextBlock 
-                        x:Name="StockName" 
-                        Margin="10,10,0,0"
-                        FontSize="20"
-                        Text="{Binding MarketName, Mode=OneWay}"/>
-                        <ComboBox
-                            x:Name="CbFilterforYear"
-                            HorizontalAlignment="Left"
-                            Margin="10"
-                            Width="100"
-                            FontSize="15"
-                            ItemsSource="{Binding LoadListYear}"
-                            materialDesign:HintAssist.Hint="Year"
-                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            SelectedIndex="{Binding SelectedYear,Mode=TwoWay}"
-                            Visibility="Hidden">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding onYearChanged}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </ComboBox>
-                        <Grid Height="400" Width="800">
-                            <lvc:CartesianChart Series="{Binding SeriesCollection}" 
-                                                LegendLocation="Left"
-                                                Style="{StaticResource ChartVisi}">
-                                <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Title="Date" Labels="{Binding Labels}"></lvc:Axis>
-                            </lvc:CartesianChart.AxisX>
-                                <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Price" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-                                </lvc:CartesianChart.AxisY>
-                            </lvc:CartesianChart>
-                        </Grid>
-                        <!--<comp:LoadingForm
-                        Visibility="{Binding isLoaded, 
-                        Converter={StaticResource visiConvert}}"/>-->
-                    <DataGrid 
-                        AutoGenerateColumns="False"
-                        HorizontalAlignment="Left" 
-                        Margin="10,55,0,46" 
-                        x:Name="dataGridMarket" 
-                        Width="820" 
-                        ItemsSource="{Binding LoadDataBinding}" 
-                        CanUserResizeRows="True"
-                        Style="{StaticResource StockDataGrid}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding date}" Header="Date" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding symbol}" Header="Market Name" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding series}" Header="Series" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding prev_close}" Header="Previous close" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding open}" Header="Open price" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding high}" Header="High" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding low}" Header="Low" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding last}" Header="Last" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding close}" Header="Close" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding vwap}" Header="VWAP" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding volume}" Header="Volume" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding turnover}" Header="Turn over" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding trades}" Header="Trades" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding deliverable_volume}" Header="Deliverable Volume" Width="100" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding percent_deliverble}" Header="Percent Deliverble" Width="100" IsReadOnly="True" />
+            <Grid 
+                    Height="580"  Width="850"
+                    Grid.Row="1"
+                    Grid.Column="1">
 
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    </StackPanel>
-                    
-                </Grid>
-            </ScrollViewer>
-            
+
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

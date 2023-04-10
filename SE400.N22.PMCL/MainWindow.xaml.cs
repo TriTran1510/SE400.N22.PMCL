@@ -48,8 +48,6 @@ namespace SE400.N22.PMCL
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
-            lsStockName.ItemsSource = dataTable.Rows.OfType<DataRow>()
-            .Select(dr => dr.Field<String>("Tables_in_MarketStock")).ToList();
         }
 
         private void Closebtn_Click(object sender, RoutedEventArgs e)
@@ -62,17 +60,7 @@ namespace SE400.N22.PMCL
         {
             this.WindowState = WindowState.Minimized;
         }
-        private void OnRadioClick(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Controls.RadioButton ck = sender as System.Windows.Controls.RadioButton;
-            CbFilterforYear.Visibility = Visibility.Visible;
-            if (ck.IsChecked.Value)
-            {
-                MarketControl marketcontrol = new MarketControl(ck.Content.ToString(), connection);
-                this.DataContext = marketcontrol;
-            }
-            
-        }
+        
         private void scrollMenu_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer scv = (ScrollViewer)sender;
