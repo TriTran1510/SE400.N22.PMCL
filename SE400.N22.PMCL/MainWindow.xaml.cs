@@ -32,12 +32,9 @@ namespace SE400.N22.PMCL
     public partial class MainWindow : Window
     {
         MySqlConnection connection;
-        
-        List<String> lsBank = new List<String>();
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
             string connectionString = ConfigurationManager.ConnectionStrings["TiDBConnectionString"].ConnectionString;
             connection = new MySqlConnection(connectionString);
             connection.Open();
@@ -59,40 +56,6 @@ namespace SE400.N22.PMCL
         private void Minimizebtn_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
-        }
-        
-        private void scrollMenu_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            ScrollViewer scv = (ScrollViewer)sender;
-            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
-            scv.ScrollToHorizontalOffset(scv.HorizontalOffset - e.Delta);
-            e.Handled = true;
-        }
-
-        private Boolean checkAvailable(List<String> lsStock,string name)
-        {
-            foreach (String s in lsStock)
-            {
-                if (name == s) { return true; }
-            }
-            return false;
-        }
-
-        private void SbBank_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (e.Key == Key.Enter)
-            {
-                if(checkAvailable(lsBank,SbBank.Text.ToString().ToUpper()) == true)
-                {
-                    MarketControl marketcontrol = new MarketControl(SbBank.Text.ToUpper(), connection);
-                    this.DataContext = marketcontrol;
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Not available for you right now!","Notification", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-            }
         }
     }
 }

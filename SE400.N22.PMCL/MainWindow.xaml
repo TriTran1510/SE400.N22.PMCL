@@ -7,13 +7,16 @@
         xmlns:convert="clr-namespace:SE400.N22.PMCL.Utils"
         xmlns:comp="clr-namespace:SE400.N22.PMCL.Theme.Form"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:viewModel="clr-namespace:SE400.N22.PMCL.ViewModel"
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
         ResizeMode="NoResize"
         WindowStyle="None"
         Title="StockMarketAnalyze" Height="650" Width="1020">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <convert:VisibilityConverter x:Key="visiConvert"/>
@@ -54,22 +57,27 @@
                                  Height="50"
                                  FontWeight="DemiBold"
                                  FontSize="15"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 IsChecked="True"
+                                 Command="{Binding StockViewCommand}"/>
                     <RadioButton Content="Products"
                                  Height="50"
                                  FontWeight="DemiBold"
                                  FontSize="15"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding ProductsViewCommand}"/>
                     <RadioButton Content="Product Type"
                                  Height="50"
                                  FontWeight="DemiBold"
                                  FontSize="15"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding ProductTypeViewCommand}"/>
                     <RadioButton Content="Import/Export"
                                  Height="50"
                                  FontWeight="DemiBold"
                                  FontSize="15"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding Im_ExportViewCommand}"/>
                 </StackPanel>
 
             </Border>
@@ -91,7 +99,7 @@
                      materialDesign:HintAssist.Hint="Search"
                      MaxWidth="400"
                      Style="{StaticResource MaterialDesignFilledTextBox}"   
-                     KeyDown="SbBank_KeyDown">
+                     >
                 </TextBox>
 
 
@@ -117,13 +125,9 @@
                 </Button>
             </StackPanel>
 
-            <Grid 
-                    Height="580"  Width="850"
-                    Grid.Row="1"
-                    Grid.Column="1">
-
-
-            </Grid>
+            <ContentControl Grid.Row="1" Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
 
         </Grid>
     </Border>
