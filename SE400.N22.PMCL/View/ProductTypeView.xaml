@@ -4,13 +4,71 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SE400.N22.PMCL.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <TextBlock Text="Product Type"
-                   Foreground="DarkGray"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   Margin="0,0,0,20"/>
-    </StackPanel>
+    <Border CornerRadius="20"
+            Background="#e6f3ff">
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Product Type"
+                       Foreground="#1F8DF7"
+                       FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="20,10,0,20"/>
+            <TextBox
+                x:Name="tbProductTypeName"
+                Height="50"
+                Width="200"
+                VerticalAlignment="Top"
+                BorderBrush="Aqua"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                <materialDesign:HintAssist.Hint>
+                        <TextBlock Background="Transparent" Foreground="Gray">Name of type</TextBlock>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <TextBox 
+                x:Name="tbProductTypeDes"
+                Height="50"
+                Width="200"
+                VerticalAlignment="Top"
+                BorderBrush="Aqua"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                <materialDesign:HintAssist.Hint>
+                        <TextBlock Background="Transparent" Foreground="Gray">Description</TextBlock>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <Button
+                Height="40"
+                Width="100"
+                Content="Save"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Foreground="White"
+                Background="#1F8DF7"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+        </StackPanel>
+        <Border 
+            CornerRadius="20"
+            Grid.Column="1"
+            Padding="10">
+            <DataGrid>
+                
+            </DataGrid>
+        </Border>
+    </Grid>
+    </Border>
+    
+    
+    
 </UserControl>
