@@ -48,19 +48,6 @@
                     </materialDesign:HintAssist.Hint>
                 </ComboBox>
                 <TextBox
-                x:Name="tbProductAmount"
-                Height="50"
-                Width="200"
-                VerticalAlignment="Top"
-                BorderBrush="Aqua"
-                HorizontalAlignment="Left"
-                Margin="10,10,0,0"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}">
-                    <materialDesign:HintAssist.Hint>
-                        <TextBlock Background="Transparent" Foreground="Gray">Quantity</TextBlock>
-                    </materialDesign:HintAssist.Hint>
-                </TextBox>
-                <TextBox
                     Height="100"
                     Width="200"
                     Margin="10,10,0,0"

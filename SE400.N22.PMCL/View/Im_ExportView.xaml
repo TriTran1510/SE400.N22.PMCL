@@ -3,18 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SE400.N22.PMCL.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border CornerRadius="20"
             Background="#e6f3ff">
-        <StackPanel>
-        <TextBlock Text="Import/Export product"
-                   Foreground="#1F8DF7"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   Margin="20,10,0,20"/>
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Import/Export product"
+                       Foreground="#1F8DF7"
+                       FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="20,10,0,20"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Import"
+                               Foreground="#1F8DF7"
+                               FontSize="18"
+                               Margin="20,0,10,0"/>
+                    <ToggleButton x:Name="ModeBtn"
+                                  Height="30"
+                                  Style="{StaticResource SwitchButton}"/>
+                    <TextBlock Text="Export"
+                               Foreground="#1F8DF7"
+                               FontSize="18"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+                <TextBox
+                x:Name="tbDate"
+                Height="50"
+                Width="200"
+                VerticalAlignment="Top"
+                BorderBrush="Aqua"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                    <materialDesign:HintAssist.Hint>
+                        <TextBlock Background="Transparent" Foreground="Gray">Date</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox
+                    Height="50"
+                    Width="200"
+                    BorderBrush="Aqua"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    ItemsSource="{Binding ShortStringList}"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <materialDesign:HintAssist.Hint>
+                        <TextBlock Background="Transparent" Foreground="Gray">Product</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+                </ComboBox>
+                <TextBox
+                x:Name="tbProductQuantity"
+                Height="50"
+                Width="200"
+                VerticalAlignment="Top"
+                BorderBrush="Aqua"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                    <materialDesign:HintAssist.Hint>
+                        <TextBlock Background="Transparent" Foreground="Gray">Product Quantity</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button
+                    Height="40"
+                    Width="100"
+                    Content="Confirm"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    Foreground="White"
+                    Background="#1F8DF7"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedButton" />
+            </StackPanel>
+            <Border 
+            CornerRadius="20"
+            Grid.Column="1"
+            Padding="10">
+                <DataGrid>
+
+                </DataGrid>
+            </Border>
+        </Grid>
     </Border>
     
 </UserControl>
