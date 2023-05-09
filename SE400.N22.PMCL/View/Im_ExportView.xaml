@@ -27,6 +27,7 @@
                                Margin="20,0,10,0"/>
                     <ToggleButton x:Name="ModeBtn"
                                   Height="30"
+                                  IsChecked="{Binding isExport}"
                                   Style="{StaticResource SwitchButton}"/>
                     <TextBlock Text="Export"
                                Foreground="#1F8DF7"
@@ -41,6 +42,7 @@
                 BorderBrush="Aqua"
                 HorizontalAlignment="Left"
                 Margin="10"
+                Text="{Binding today}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Date</TextBlock>
@@ -53,7 +55,9 @@
                     HorizontalAlignment="Left"
                     Margin="10,0,0,0"
                     materialDesign:TextFieldAssist.HasClearButton="True"
-                    ItemsSource="{Binding ShortStringList}"
+                    ItemsSource="{Binding listProduct}"
+                    DisplayMemberPath="productName"
+                    SelectedIndex="{Binding selectedProduct}"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Product</TextBlock>
@@ -67,6 +71,7 @@
                 BorderBrush="Aqua"
                 HorizontalAlignment="Left"
                 Margin="10"
+                Text="{Binding amount}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Product Quantity</TextBlock>
@@ -80,6 +85,7 @@
                     HorizontalAlignment="Left"
                     Foreground="White"
                     Background="#1F8DF7"
+                    Command="{Binding SaveCommand}"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="Resource name: MaterialDesignRaisedButton" />
             </StackPanel>

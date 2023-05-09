@@ -39,10 +39,10 @@ namespace SE400.N22.PMCL.ViewModel
             connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            StockVM = new StockViewModel();
+            StockVM = new StockViewModel(connection);
             ProductsVM = new ProductsViewModel(connection);
             ProductTypeVM = new ProductTypeViewModel(connection);
-            Im_ExportVM = new Im_ExportViewModel();
+            Im_ExportVM = new Im_ExportViewModel(connection);
             CurrentView = StockVM;
 
             StockViewCommand = new RelayCommand(o =>
