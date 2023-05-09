@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:SE400.N22.PMCL.View"
+             xmlns:local="clr-namespace:SE400.N22.PMCL.View" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
@@ -29,6 +29,7 @@
                 BorderBrush="Aqua"
                 HorizontalAlignment="Left"
                 Margin="10"
+                Text="{Binding productName}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Name of product</TextBlock>
@@ -41,7 +42,9 @@
                     HorizontalAlignment="Left"
                     Margin="10,0,0,0"
                     materialDesign:TextFieldAssist.HasClearButton="True"
-                    ItemsSource="{Binding ShortStringList}"
+                    DisplayMemberPath="productTypeName"
+                    ItemsSource="{Binding listProductType}"
+                    SelectedIndex="{Binding SelectedProductType, Mode=TwoWay}"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Type of product</TextBlock>
@@ -57,6 +60,7 @@
                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     TextWrapping="Wrap"
+                    Text="{Binding description}"
                     VerticalScrollBarVisibility="Auto">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Foreground="Gray"
@@ -71,6 +75,7 @@
                     HorizontalAlignment="Left"
                     Foreground="White"
                     Background="#1F8DF7"
+                    Command="{Binding SaveCommand}"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="Resource name: MaterialDesignRaisedButton" />
             </StackPanel>

@@ -29,6 +29,7 @@
                 BorderBrush="Aqua"
                 HorizontalAlignment="Left"
                 Margin="10"
+                Text="{Binding productTypeName}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}">
                 <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Name of type</TextBlock>
@@ -42,6 +43,7 @@
                 BorderBrush="Aqua"
                 HorizontalAlignment="Left"
                 Margin="10"
+                Text="{Binding description}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}">
                 <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Description</TextBlock>
@@ -55,6 +57,7 @@
                 HorizontalAlignment="Left"
                 Foreground="White"
                 Background="#1F8DF7"
+                Command="{Binding SaveCommand}"
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton" />
         </StackPanel>

@@ -1,6 +1,8 @@
-﻿using SE400.N22.PMCL.Core;
+﻿using MySql.Data.MySqlClient;
+using SE400.N22.PMCL.Core;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace SE400.N22.PMCL.ViewModel
         public StockViewModel StockVM { get; set; }  
 
         private object _currentView;
+        private MySqlConnection connection { get; set; }
 
         public object CurrentView
         {
@@ -32,9 +35,13 @@ namespace SE400.N22.PMCL.ViewModel
         }
         public MainViewModel()
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["TiDBConnectionString"].ConnectionString;
+            connection = new MySqlConnection(connectionString);
+            connection.Open();
+
             StockVM = new StockViewModel();
-            ProductsVM = new ProductsViewModel();
-            ProductTypeVM = new ProductTypeViewModel();
+            ProductsVM = new ProductsViewModel(connection);
+            ProductTypeVM = new ProductTypeViewModel(connection);
             Im_ExportVM = new Im_ExportViewModel();
             CurrentView = StockVM;
 
