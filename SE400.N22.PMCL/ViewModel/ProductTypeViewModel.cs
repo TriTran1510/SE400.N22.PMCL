@@ -25,13 +25,14 @@ namespace SE400.N22.PMCL.ViewModel
             this.connection = connection;
             SaveCommand = new RelayCommand(o => { Save(); });
             listProductType = new ObservableCollection<ProductTypeModel>();
+            getData();
         }
 
         public async void Save(object o = null)
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("Insert into producttype (type, description) values (\"" + productTypeName + "\",\"" + description + "\");", connection);
+                MySqlCommand cmd = new MySqlCommand("Begin;\nInsert into producttype (type, description) values (\"" + productTypeName + "\",\"" + description + "\");\nCommit", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (await reader.ReadAsync())
                 {

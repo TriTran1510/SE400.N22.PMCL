@@ -36,7 +36,7 @@ namespace SE400.N22.PMCL.ViewModel
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("Insert into product (name, type, description) values (\"" + productName + "\", \"" + listProductType[SelectedProductType].id + "\",\"" + description + "\");", connection);
+                MySqlCommand cmd = new MySqlCommand("Begin;\nInsert into product (name, type, description) values (\"" + productName + "\", \"" + listProductType[SelectedProductType].id + "\",\"" + description + "\");\nCommit;", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (await reader.ReadAsync())
                 {
@@ -61,11 +61,11 @@ namespace SE400.N22.PMCL.ViewModel
         }
         public async void getProductData()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM warehouse.product", connection);
+            MySqlCommand cmd = new MySqlCommand("SELECT product.id, product.name, producttype.type, product.description FROM warehouse.product INNER JOIN producttype on product.type = producttype.id;", connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (await reader.ReadAsync())
             {
-                listProduct.Add(new ProductModel(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(4)));
+                listProduct.Add(new ProductModel(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
             }
             await reader.CloseAsync();
         }

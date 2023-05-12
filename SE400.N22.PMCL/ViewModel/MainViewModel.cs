@@ -48,21 +48,33 @@ namespace SE400.N22.PMCL.ViewModel
             StockViewCommand = new RelayCommand(o =>
             {
                 CurrentView = StockVM;
+                ProductsVM = new ProductsViewModel(connection);
+                ProductTypeVM = new ProductTypeViewModel(connection);
+                Im_ExportVM = new Im_ExportViewModel(connection);
             });
 
             ProductsViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ProductsVM;
+                ProductTypeVM = new ProductTypeViewModel(connection);
+                Im_ExportVM = new Im_ExportViewModel(connection);
+                StockVM = new StockViewModel(connection);
             });
 
             ProductTypeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ProductTypeVM;
+                StockVM = new StockViewModel(connection);
+                ProductsVM = new ProductsViewModel(connection);
+                Im_ExportVM = new Im_ExportViewModel(connection);
             });
 
             Im_ExportViewCommand = new RelayCommand(o =>
             {
                 CurrentView = Im_ExportVM;
+                StockVM = new StockViewModel(connection);
+                ProductsVM = new ProductsViewModel(connection);
+                ProductTypeVM = new ProductTypeViewModel(connection);
             });
         }
     }

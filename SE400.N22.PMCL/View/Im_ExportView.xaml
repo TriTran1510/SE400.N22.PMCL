@@ -27,6 +27,7 @@
                                Margin="20,0,10,0"/>
                     <ToggleButton x:Name="ModeBtn"
                                   Height="30"
+                                  Command="{Binding OnToggleButtonClick}"
                                   IsChecked="{Binding isExport}"
                                   Style="{StaticResource SwitchButton}"/>
                     <TextBlock Text="Export"
@@ -93,7 +94,7 @@
             CornerRadius="20"
             Grid.Column="1"
             Padding="10">
-                <DataGrid>
+                <DataGrid ItemsSource="{Binding listImportAndExportProduct}">
 
                 </DataGrid>
             </Border>
