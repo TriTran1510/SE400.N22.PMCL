@@ -32,7 +32,7 @@ namespace SE400.N22.PMCL.ViewModel
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("Begin;\nInsert into producttype (type, description) values (\"" + productTypeName + "\",\"" + description + "\");\nCommit", connection);
+                MySqlCommand cmd = new MySqlCommand("Begin;\nInsert into producttype (type, description) values (\"" + productTypeName + "\",\"" + description + "\");", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (await reader.ReadAsync())
                 {
@@ -44,6 +44,14 @@ namespace SE400.N22.PMCL.ViewModel
             {
                 Console.WriteLine(ex.Message);
             }
+            await Task.Delay(5000);
+            MySqlCommand cmd2 = new MySqlCommand("Commit;", connection);
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            while (await reader2.ReadAsync())
+            {
+
+            }
+            await reader2.CloseAsync();
         }
         public async void getData()
         {
