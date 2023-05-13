@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Windows;
+using System.Windows.Input;
 using MySql.Data.MySqlClient;
 
 namespace SE400.N22.PMCL
@@ -31,6 +32,12 @@ namespace SE400.N22.PMCL
         private void Minimizebtn_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

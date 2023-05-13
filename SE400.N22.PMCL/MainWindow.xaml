@@ -22,7 +22,7 @@
         <convert:VisibilityConverter x:Key="visiConvert"/>
     </Window.Resources>
     <Border Background="White"
-            CornerRadius="20">
+            CornerRadius="20" MouseDown="Border_MouseDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
