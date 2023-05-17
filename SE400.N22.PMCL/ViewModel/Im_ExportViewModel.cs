@@ -22,6 +22,7 @@ namespace SE400.N22.PMCL.ViewModel
 
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand OnToggleButtonClick { get; set; }
+        public RelayCommand SelectionChanged { get; set; }
         public Im_ExportViewModel(MySqlConnection connection)
         {
             selectedProduct = -1;
@@ -42,22 +43,24 @@ namespace SE400.N22.PMCL.ViewModel
         }
         public async void Save(object o = null)
         {
-            string format = "yyyy-MM-dd HH:mm:ss";
-            string temp = isExport ? "export_rp" : "import_rp";
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand("Begin; \nInsert into " + temp + " (date, pid, amount) values (\"" + DateTime.Parse(today).ToString(format) + "\", \"" + listProduct[selectedProduct].id + "\",\"" + amount + "\");\nCommit;", connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (await reader.ReadAsync())
-                {
 
+                string format = "yyyy-MM-dd HH:mm:ss";
+                string temp = isExport ? "export_rp" : "import_rp";
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("Begin; \nInsert into " + temp + " (date, pid, amount) values (\"" + DateTime.Parse(today).ToString(format) + "\", \"" + listProduct[selectedProduct].id + "\",\"" + amount + "\");\nCommit;", connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (await reader.ReadAsync())
+                    {
+
+                    }
+                    await reader.CloseAsync();
                 }
-                await reader.CloseAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            
         }
         public async void getProductData()
         {

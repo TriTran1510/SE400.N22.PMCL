@@ -83,7 +83,9 @@
             CornerRadius="20"
             Grid.Column="1"
             Padding="10">
-                <DataGrid ItemsSource="{Binding listProduct}">
+                <DataGrid 
+                    IsReadOnly="True"
+                    ItemsSource="{Binding listProduct}">
 
                 </DataGrid>
             </Border>

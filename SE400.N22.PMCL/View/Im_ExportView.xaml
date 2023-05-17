@@ -94,7 +94,10 @@
             CornerRadius="20"
             Grid.Column="1"
             Padding="10">
-                <DataGrid ItemsSource="{Binding listImportAndExportProduct}">
+                <DataGrid 
+                    SelectionMode="Single"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding listImportAndExportProduct}">
 
                 </DataGrid>
             </Border>
