@@ -44,7 +44,8 @@
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     DisplayMemberPath="productTypeName"
                     ItemsSource="{Binding listProductType}"
-                    SelectedIndex="{Binding SelectedProductType, Mode=TwoWay}"
+                    SelectedValue="{}"
+                    SelectedIndex="{Binding SelectedProductType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}">
                     <materialDesign:HintAssist.Hint>
                         <TextBlock Background="Transparent" Foreground="Gray">Type of product</TextBlock>
@@ -84,9 +85,22 @@
             Grid.Column="1"
             Padding="10">
                 <DataGrid 
+                    SelectedIndex="{Binding selectedProduct}"
+                    SelectionMode="Single"
                     IsReadOnly="True"
-                    ItemsSource="{Binding listProduct}">
-
+                    ItemsSource="{Binding listProduct}"
+                    AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding productName}"/>
+                        <DataGridTextColumn Header="Product Type" Binding="{Binding productType}"/>
+                        <DataGridTextColumn Header="Product Type" Binding="{Binding description}"/>
+                    </DataGrid.Columns>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding SelectionChanged}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </DataGrid>
             </Border>
         </Grid>
