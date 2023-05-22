@@ -109,6 +109,7 @@ namespace SE400.N22.PMCL.ViewModel
             }
             reload();
         }
+
         public async void getProductTypeData()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM warehouse.producttype", connection);

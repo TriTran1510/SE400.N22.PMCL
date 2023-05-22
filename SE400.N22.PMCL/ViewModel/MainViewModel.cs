@@ -19,7 +19,6 @@ namespace SE400.N22.PMCL.ViewModel
         public Im_ExportViewModel Im_ExportVM { get; set; }
         public ProductTypeViewModel ProductTypeVM { get; set; }
         public ProductsViewModel ProductsVM { get; set; }
-        public StockViewModel StockVM { get; set; }  
 
         private object _currentView;
         private MySqlConnection connection { get; set; }
@@ -38,33 +37,22 @@ namespace SE400.N22.PMCL.ViewModel
             string connectionString = ConfigurationManager.ConnectionStrings["TiDBConnectionString"].ConnectionString;
             connection = new MySqlConnection(connectionString);
             connection.Open();
-
-            StockVM = new StockViewModel(connection);
+ 
             ProductsVM = new ProductsViewModel(connection);
             ProductTypeVM = new ProductTypeViewModel(connection);
             Im_ExportVM = new Im_ExportViewModel(connection);
-            CurrentView = StockVM;
-
-            StockViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = StockVM;
-                ProductsVM = new ProductsViewModel(connection);
-                ProductTypeVM = new ProductTypeViewModel(connection);
-                Im_ExportVM = new Im_ExportViewModel(connection);
-            });
+            CurrentView = ProductsVM;
 
             ProductsViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ProductsVM;
                 ProductTypeVM = new ProductTypeViewModel(connection);
                 Im_ExportVM = new Im_ExportViewModel(connection);
-                StockVM = new StockViewModel(connection);
             });
 
             ProductTypeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ProductTypeVM;
-                StockVM = new StockViewModel(connection);
                 ProductsVM = new ProductsViewModel(connection);
                 Im_ExportVM = new Im_ExportViewModel(connection);
             });
@@ -72,7 +60,6 @@ namespace SE400.N22.PMCL.ViewModel
             Im_ExportViewCommand = new RelayCommand(o =>
             {
                 CurrentView = Im_ExportVM;
-                StockVM = new StockViewModel(connection);
                 ProductsVM = new ProductsViewModel(connection);
                 ProductTypeVM = new ProductTypeViewModel(connection);
             });

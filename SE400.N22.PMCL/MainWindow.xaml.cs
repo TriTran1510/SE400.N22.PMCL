@@ -15,12 +15,6 @@ namespace SE400.N22.PMCL
         {
             InitializeComponent();
 
-            // Execute SQL queries or commands here
-            //MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection);
-            //MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            //DataTable dataTable = new DataTable();
-            //adapter.Fill(dataTable);
-
         }
 
         private void Closebtn_Click(object sender, RoutedEventArgs e)
