@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel>
+            <StackPanel Orientation="Vertical">
                 <TextBlock Text="List of products"
                        Foreground="#1F8DF7"
                        FontSize="20"
@@ -68,17 +68,30 @@
                                    Background="Transparent">Description</TextBlock>
                     </materialDesign:HintAssist.Hint>
                 </TextBox>
-                <Button
-                    Height="40"
-                    Width="100"
-                    Content="Save"
-                    Margin="10"
-                    HorizontalAlignment="Left"
-                    Foreground="White"
-                    Background="#1F8DF7"
-                    Command="{Binding SaveCommand}"
-                    Style="{StaticResource MaterialDesignRaisedButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedButton" />
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Height="40"
+                        Width="100"
+                        Content="Save"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        Background="#1F8DF7"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" />
+                    <Button
+                        Height="40"
+                        Width="100"
+                        Content="Delete"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        Background="#1F8DF7"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"/>
+                </StackPanel>
+               
             </StackPanel>
             <Border 
             CornerRadius="20"
