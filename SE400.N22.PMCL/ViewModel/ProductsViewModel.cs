@@ -66,14 +66,14 @@ namespace SE400.N22.PMCL.ViewModel
         {
             if (isUpdate)
             {
-                MySqlCommand cmd = new MySqlCommand("Begin;\nUpdate product set type=\"" + listProductType[selectedProductType].id + "\", description=\"" + description + "\" where id=" + listProduct[selectedProduct].id + ";", connection); ;
+                MySqlCommand cmd = new MySqlCommand("Begin;\nUpdate product set name=\"" + productName +"\",type=\"" + listProductType[selectedProductType].id + "\", description=\"" + description + "\" where id=" + listProduct[selectedProduct].id + ";", connection); ;
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (await reader.ReadAsync())
                 {
 
                 }
                 await reader.CloseAsync();
-                await Task.Delay(5000);
+                await Task.Delay(10000);
                 MySqlCommand commit = new MySqlCommand("Commit;", connection);
                 MySqlDataReader commitReader2 = commit.ExecuteReader();
                 while (await commitReader2.ReadAsync())
