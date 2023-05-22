@@ -25,7 +25,6 @@ namespace SE400.N22.PMCL
 
         private void Closebtn_Click(object sender, RoutedEventArgs e)
         {
-            connection.Close();
             this.Close();
         }
 
