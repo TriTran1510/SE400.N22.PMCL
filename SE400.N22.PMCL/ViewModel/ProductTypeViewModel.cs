@@ -24,6 +24,7 @@ namespace SE400.N22.PMCL.ViewModel
 
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand SelectionChanged { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
 
         public ProductTypeViewModel(MySqlConnection connection)
         {
@@ -33,7 +34,27 @@ namespace SE400.N22.PMCL.ViewModel
             SaveCommand = new RelayCommand(o => { Save(); });
             SelectionChanged = new RelayCommand(o => { selectionChanged(); });
             listProductType = new ObservableCollection<ProductTypeModel>();
+            DeleteCommand = new RelayCommand(o => { delete(); });
             getData();
+        }
+        public async void delete(object o = null)
+        {
+            MySqlCommand cmd = new MySqlCommand("Begin;\nDelete from producttype where id="+ listProductType[selectedProductType].id +";", connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (await reader.ReadAsync())
+            {
+
+            }
+            await reader.CloseAsync();
+            await Task.Delay(10000);
+            MySqlCommand cmd2 = new MySqlCommand("Commit;", connection);
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            while (await reader2.ReadAsync())
+            {
+
+            }
+            await reader2.CloseAsync();
+            reload();
         }
         public void reload()
         {

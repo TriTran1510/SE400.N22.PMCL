@@ -24,6 +24,7 @@ namespace SE400.N22.PMCL.ViewModel
 
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand SelectionChanged { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
         public int selectedProductType { get; set; }
         public int selectedProduct { get; set;  }
         private bool isUpdate { get; set; }
@@ -37,6 +38,7 @@ namespace SE400.N22.PMCL.ViewModel
             selectedProductType = -1;
             selectedProduct = -1;
             SelectionChanged = new RelayCommand(o => { selectionChanged(); });
+            DeleteCommand = new RelayCommand(o => { delete(); });
             getProductTypeData();
             getProductData();
         }
@@ -61,6 +63,25 @@ namespace SE400.N22.PMCL.ViewModel
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(productName)));
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(description)));
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(selectedProductType)));
+        }
+        public async void delete(object o = null)
+        {
+            MySqlCommand cmd = new MySqlCommand("Begin;\nDelete from product where id=" + listProduct[selectedProduct].id + ";", connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (await reader.ReadAsync())
+            {
+
+            }
+            await reader.CloseAsync();
+            await Task.Delay(5000);
+            MySqlCommand cmd2 = new MySqlCommand("Commit;", connection);
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            while (await reader2.ReadAsync())
+            {
+
+            }
+            await reader2.CloseAsync();
+            reload();
         }
         public async void Save(object o = null)
         {

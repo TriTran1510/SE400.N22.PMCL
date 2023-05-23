@@ -69,6 +69,7 @@
                         HorizontalAlignment="Left"
                         Foreground="White"
                         Background="#1F8DF7"
+                        Command="{Binding DeleteCommand}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         ToolTip="Resource name: MaterialDesignRaisedButton"/>
                 </StackPanel>
